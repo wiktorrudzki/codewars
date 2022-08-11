@@ -1,4 +1,6 @@
-function insideOut(x){
+// FIRST VERSION
+
+function insideOutFirstVersion(x){
     let result = x;
     if (/[a-zA-Z]/.test(x)) {
         result = '';
@@ -34,6 +36,12 @@ function insideOut(x){
 
   return result;
 
+}
+
+// LATEST VERSION
+
+function insideOut(x) {
+    return x.split(' ').map(word => word.length % 2 === 0 ? (word.slice(0, word.length/2).split('').reduce((acc, letter) => letter + acc, '') + word.slice(word.length/2, word.length).split('').reduce((acc, letter) => letter + acc, '')) : (word.slice(0, word.length/2-0.5).split('').reduceRight((acc, letter) => acc + letter, '') + word[word.length/2-0.5] + word.slice(word.length/2+0.5, word.length).split('').reduceRight((acc, letter) => acc + letter, ''))).join(' ')
 }
 
 console.log(insideOut('man i need a taxi up to ubud'));
