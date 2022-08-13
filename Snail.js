@@ -1,4 +1,6 @@
-snail = function(array) {
+//Moja pierwsza wersja
+
+snailMyVersion = function(array) {
     let result = [];
 
     while (true) {
@@ -41,6 +43,27 @@ snail = function(array) {
     }
 }
 
-console.log(snail([[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14, 15], [16, 17, 18, 19, 20], [21, 22, 23, 24, 25]]))
+//Ostateczna wersja - z codewarsow, lekko zmodyfikowana dla zrozumienia
+
+snail = function(array) {
+    let result = [];
+    while (true) {
+        result = (result ? result.concat(array.shift()) : array.shift());
+        if (array.length === 0) return result;
+
+        for (let i = 0; i < array.length; i++) result.push(array[i].pop());
+        if (array.length === 0) return result;
+
+        result = result.concat(array.pop().reverse());
+        if (array.length === 0) return result;
+
+        for (let i = array.length - 1; i >= 0; i--) result.push(array[i].shift());
+        if (array.length === 0) return result;
+    }
+}
+
+const array = [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14, 15], [16, 17, 18, 19, 20], [21, 22, 23, 24, 25]]
+
+console.log(snail(array))
 
 //https://www.codewars.com/kata/521c2db8ddc89b9b7a0000c1/solutions/javascript
