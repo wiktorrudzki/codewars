@@ -1,0 +1,52 @@
+snail = function(array) {
+    let result = [];
+
+    const sideLength = array.length;
+
+    while (array.length > 0) {
+
+        array[0].forEach(element => {
+            result.push(element);
+        });
+        array = array.slice(1);
+
+        if (array.length === 0) return result;
+
+        array.forEach((arr, arrIndex) => {
+            arr.forEach((number, index) => {
+                if (index === arr.length - 1) {
+                    result.push(number);
+                    array[arrIndex].splice(index, 1)
+                }
+            })
+        })
+
+        if (array.length === 0) return result;
+
+        array[array.length - 1].slice().reverse().forEach((number, index) => {
+                result.push(number);
+        })
+        array = array.slice(0, array.length - 1)
+
+        if (array.length === 0) return result;
+
+        array.slice().reverse().forEach((arr, arrIndex) => {
+            arr.forEach((number, index) => {
+                if (index === 0) {
+                    result.push(number);
+                    array[array.length - 1 - arrIndex].splice(index, 1)
+                }
+            })
+        })
+
+        if (array.length === 0) return result;
+    }
+}
+
+array = [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14, 15], [16, 17, 18, 19, 20], [21, 22, 23, 24, 25]]
+
+array.forEach(arr => {
+    console.log(arr)
+})
+
+console.log(snail([[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14, 15], [16, 17, 18, 19, 20], [21, 22, 23, 24, 25]]))
