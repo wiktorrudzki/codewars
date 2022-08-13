@@ -1,9 +1,7 @@
 snail = function(array) {
     let result = [];
 
-    const sideLength = array.length;
-
-    while (array.length > 0) {
+    while (true) {
 
         array[0].forEach(element => {
             result.push(element);
@@ -23,7 +21,7 @@ snail = function(array) {
 
         if (array.length === 0) return result;
 
-        array[array.length - 1].slice().reverse().forEach((number, index) => {
+        array[array.length - 1].slice().reverse().forEach(number => {
                 result.push(number);
         })
         array = array.slice(0, array.length - 1)
@@ -43,10 +41,6 @@ snail = function(array) {
     }
 }
 
-array = [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14, 15], [16, 17, 18, 19, 20], [21, 22, 23, 24, 25]]
-
-array.forEach(arr => {
-    console.log(arr)
-})
-
 console.log(snail([[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14, 15], [16, 17, 18, 19, 20], [21, 22, 23, 24, 25]]))
+
+//https://www.codewars.com/kata/521c2db8ddc89b9b7a0000c1/solutions/javascript
