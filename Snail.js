@@ -62,6 +62,8 @@ snail = function(array) {
     }
 }
 
-console.log(snail([[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14, 15], [16, 17, 18, 19, 20], [21, 22, 23, 24, 25]]))
+const array = [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14, 15], [16, 17, 18, 19, 20], [21, 22, 23, 24, 25]]
+
+console.log(snail(array))
 
 //https://www.codewars.com/kata/521c2db8ddc89b9b7a0000c1/solutions/javascript
