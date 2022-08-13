@@ -1,4 +1,6 @@
-snail = function(array) {
+//Moja pierwsza wersja
+
+snailMyVersion = function(array) {
     let result = [];
 
     while (true) {
@@ -37,6 +39,25 @@ snail = function(array) {
             })
         })
 
+        if (array.length === 0) return result;
+    }
+}
+
+//Ostateczna wersja - z codewarsow, lekko zmodyfikowana dla zrozumienia
+
+snail = function(array) {
+    let result = [];
+    while (true) {
+        result = (result ? result.concat(array.shift()) : array.shift());
+        if (array.length === 0) return result;
+
+        for (let i = 0; i < array.length; i++) result.push(array[i].pop());
+        if (array.length === 0) return result;
+
+        result = result.concat(array.pop().reverse());
+        if (array.length === 0) return result;
+
+        for (let i = array.length - 1; i >= 0; i--) result.push(array[i].shift());
         if (array.length === 0) return result;
     }
 }
