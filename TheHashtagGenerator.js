@@ -19,4 +19,4 @@ function generateHashtag(str) {
     return ('#' + str.split(' ').map(item => (item.charAt(0).toUpperCase() + item.slice(1)).trim()).join('')).length > 140 ? false : str.trim() === '' ? false : '#' + str.split(' ').map(item => (item.charAt(0).toUpperCase() + item.slice(1)).trim()).join('')
 }
 
-console.log(x("Do We have A      Hashtag"));
+console.log(generateHashtag("Do We have A      Hashtag"));
